@@ -1,0 +1,8 @@
+.page{
+    background-image: url('/assets/images/Background.svg');
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+   
+}
