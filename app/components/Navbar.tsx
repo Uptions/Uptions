@@ -183,7 +183,7 @@ const Nav = () => {
                 </div>
               </Link>
 
-              <Link href="https://www.linkedin.com/company/105104061/admin/dashboard/">
+              <Link href="https://www.linkedin.com/company/uptions/">
                 <div className="flex items-center gap-[1em] font-space">
                   <h1>Linkedin</h1>
                   <Image src={Linkedin} alt="linkedin logo" />
