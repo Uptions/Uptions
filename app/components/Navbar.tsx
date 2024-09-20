@@ -59,13 +59,13 @@ const Nav = () => {
   return (
     <div className="flex justify-between items-center px-[2em]" ref={dropdownRef}>
       <div>
-        <a href="/">
+        <a href="/" className="w-[30%]">
           <Image
             src={Logo}
             alt="logo"
             height={100}
-            width={100}
-            className="xl:w-[100%]  w-[70%]"
+            width={200}
+            className=""
           />
         </a>
       </div>
@@ -98,12 +98,12 @@ const Nav = () => {
 
       <div className="xl:flex gap-[1em] items-center hidden">
         <h1 className="font-space text-[#001B6C] text-[20px] font-[400] ">
-          Follow the journey on
+          Follow us on
         </h1>
-        <a href="https://twitter.com" className="">
+        <a href="https://x.com/useuptions?t=L9pIIsBq9auVnGuCVMYL9w&s=09" className="">
           <Image src={twitter} alt="twitter logo" />
         </a>
-        <a href="https://linkedin.com">
+        <a href="https://www.linkedin.com/company/uptions/">
           <Image
             src={Linkedin}
             alt="linkedin logo"
@@ -133,7 +133,7 @@ const Nav = () => {
                 rotate: isOpen ? 45 : 0,
                 y: isOpen ? 8 : 0, // Move the line down when open
               }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.1 }}
             />
             {/* Middle Line */}
             <motion.path

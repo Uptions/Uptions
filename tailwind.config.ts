@@ -19,18 +19,22 @@ const config: Config = {
       keyframes: {
         bike1: {
           "0%": { transform: "translateX(200%) rotate(12deg)" },
-          "100%": { transform: "translateX(-10%) translateY(-40%) rotate(0)" },
+          "100%": { transform: "translateX(-10%) translateY(-50%) rotate(0)" },
         },
         bike1Subtle: {
           "0%": { transform: "translateX(200%) rotate(12deg)" },
           "100%": { transform: "translateX(-10%) translateY(-98%) rotate(0)" },
+        },
+        bike1Subtle2: {
+          "0%": { transform: "translateX(200%) rotate(12deg)" },
+          "100%": { transform: "translateX(-10%) translateY(-78%) rotate(0)" },
         },
 
         bike2: {
           "0%": {
             transform: "translateX(-200%) translateY(200%) rotate(-12deg)",
           },
-          "100%": { transform: "translateX(40%) translateY(-75%) rotate(0)" },
+          "100%": { transform: "translateX(40%) translateY(-85%) rotate(0)" },
         },
         bike3: {
           "0%": { transform: "translateX(-200%) rotate(6deg)" },
@@ -40,7 +44,7 @@ const config: Config = {
       animation: {
         bike1: "bike1 3s ease-out forwards",
         bike1Subtle: "bike1Subtle 3s ease-out forwards",
-        bike2Subtle: "bike2Subtle  ease-out 1s forwards", // Slower and smoother motion with a slight delay
+        bike1Subtle2: "bike1Subtle2 3s ease-out forwards",
         bike3: "bike3 3s ease-out forwards",
         bike2: "bike2 3s ease-out forwards",
       },

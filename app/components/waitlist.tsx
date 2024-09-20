@@ -37,11 +37,17 @@ const Waitlist = () => {
 
       const data = await response.json();
 
-      if (!response.ok) {
-        setMessage(`Error: ${data.error}`);
+      if (response.status === 409) {
+        // Handle conflict (email already signed up)
+        setMessage('Email has already been signed up for our waitlist.');
+        setIsError(true); // Set error state to true
+      } else if (!response.ok) {
+        // Handle other errors
+        setMessage(`Error: ${data.error || 'Something went wrong. Please try again.'}`);
         setIsError(true); // Set error state to true
       } else {
-        setMessage(data.message);
+        // Successful signup
+        setMessage('Successfully added to the waitlist!');
         setIsError(false); // Clear error state on success
         setEmail(''); // Clear email input on success
       }
@@ -71,7 +77,7 @@ const Waitlist = () => {
 
         {/* Waitlist input and button */}
         <div className="flex justify-center mt-6 w-[80%] md:w-[50%] lg:w-[50%] mx-auto">
-          <form onSubmit={handleSubmit} className="flex items-center w-full backdrop-blur-md border-blue-600 px-[5px] py-[2px] md:py-[4px] lg:px-[5px] border-[1px] bg-[rgba(0,123,255,0.2)] rounded-full z-20">
+          <form onSubmit={handleSubmit} className="flex items-center w-full backdrop-blur-md border-blue-600 px-[3px] py-[2px] md:py-[4px] lg:px-[5px] border-[1px] bg-[rgba(0,123,255,0.2)] rounded-full z-20">
             <input
               type="email"
               placeholder="type your email"
@@ -80,7 +86,7 @@ const Waitlist = () => {
               className="w-full text-[#007BFFBF] p-3 bg-transparent outline-none placeholder-[#007BFFBF] md:text-[20px] text-[12px] font-space"
             />
             <button
-              className="bg-[#001E62] text-white font-semibold text-[8px] lg:text-[18px] lg:py-6 px-2 p-3 md:py-5 lg:w-[20em] w-[50%] rounded-full hover:bg-blue-800 transition ease-linear duration-300  "
+              className="bg-[#001E62] text-white font-semibold text-[8px] lg:text-[18px] lg:py-6 px-2 p-3 md:py-5 lg:w-[20em] w-[50%] md:w-[40%] rounded-full hover:bg-blue-800 transition ease-linear duration-300  "
               disabled={loading} // Disable the button while loading
             >
               JOIN WAITLIST
@@ -102,10 +108,10 @@ const Waitlist = () => {
 
         {/* Anchor tag for external form link */}
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfbPPG2jrtDCZSveg62aT-7YuQ_8ugV2UrZcR98DAnTbaLF5g/viewform?usp=sf_link"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfT69uhrTbxMQO1nRgR-yBQ2aUXxfDqJUbFHib35GDSTgp6Gw/viewform?usp=sf_link"
           target="_blank"
           rel="noopener noreferrer"
-          className="md:mt-[3em] mt-[1em] block text-[#007BFF] font-[700] text-[16px] md:text-[21px] md:w-[20%] mx-auto"
+          className="md:mt-[2em] mt-[1em] block text-[#007BFF] font-[700] text-[16px] md:text-[21px]  mx-auto  border-b-[2px] border-[#007BFF]"
         >
           Take a survey
         </a>
@@ -113,13 +119,13 @@ const Waitlist = () => {
 
       {/* Animated Bikes */}
       <div className="">
-        <div className="absolute  z-0 top-[55%] lg:right-[-200px] right-[-200px] transform -rotate-12 lg:animate-bike1 animate-bike1Subtle pointer-events-none">
+        <div className="absolute  z-0 top-[55%] lg:right-[-200px] right-[-30px] md:right-[-45px] transform -rotate-12 lg:animate-bike1 md:animate-bike1Subtle2 animate-bike1Subtle pointer-events-none">
           <Image
             src={bikeone}
             width={200}
             height={200}
             alt="Delivery Man Riding Scooter"
-            className="w-[100.47px] md:w-[650.47px] xl:w-[800px] h-[396.56px] "
+            className="w-[200.47px] md:w-[670.47px] xl:w-[800px] h-[396.56px] "
           />
         </div>
 
