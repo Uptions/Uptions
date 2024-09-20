@@ -119,7 +119,7 @@ const Waitlist = () => {
 
       {/* Animated Bikes */}
       <div className="">
-        <div className="absolute  z-0 top-[55%] lg:right-[-200px] right-[-30px] md:right-[-45px] transform -rotate-12 lg:animate-bike1 md:animate-bike1Subtle2 animate-bike1Subtle pointer-events-none">
+        <div className="absolute  z-0 top-[55%] lg:right-[-200px] right-[-30px] md:right-[-70px] transform -rotate-12 lg:animate-bike1 md:animate-bike1Subtle2 animate-bike1Subtle pointer-events-none">
           <Image
             src={bikeone}
             width={200}

@@ -50,6 +50,19 @@ const Nav = () => {
 
   const isRouteActive = (path: string) => pathname === path;
 
+  const openAppWithFallback = (appUrl: string, fallbackUrl: string) => {
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = appUrl;
+    document.body.appendChild(iframe);
+
+    // Fallback to web version after a delay (e.g., 2 seconds)
+    setTimeout(() => {
+      document.body.removeChild(iframe);
+      window.location.href = fallbackUrl;
+    }, 2000); // 2 seconds delay before redirecting to the web URL
+  };
+
   return (
     <div className="flex justify-between items-center px-[2em]" ref={dropdownRef}>
       <div>
@@ -94,13 +107,10 @@ const Nav = () => {
 
         {/* Deeplink Twitter */}
         <a
-          href="twitter://user?screen_name=useuptions"
+          href="#"
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = 'twitter://user?screen_name=useuptions';
-            setTimeout(() => {
-              window.location.href = 'https://twitter.com/useuptions';
-            }, 500); // Fallback to web after 500ms if the app is not installed
+            openAppWithFallback('twitter://user?screen_name=useuptions', 'https://twitter.com/useuptions');
           }}
         >
           <Image src={twitter} alt="twitter logo" />
@@ -108,13 +118,10 @@ const Nav = () => {
 
         {/* Deeplink LinkedIn */}
         <a
-          href="linkedin://company/uptions"
+          href="#"
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = 'linkedin://company/uptions';
-            setTimeout(() => {
-              window.location.href = 'https://www.linkedin.com/company/uptions/';
-            }, 500); // Fallback to web after 500ms if the app is not installed
+            openAppWithFallback('linkedin://company/uptions', 'https://www.linkedin.com/company/uptions/');
           }}
         >
           <Image src={Linkedin} alt="linkedin logo" className="h-[24px] w-[24px]" />
@@ -180,15 +187,23 @@ const Nav = () => {
               <li className="text-white list-none font-space cursor-pointer font-normal text-[20px]">
                 Follow the journey on
               </li>
-              <Link href="twitter://user?screen_name=useuptions">
-                <div className="flex items-center gap-[1em] font-space">
+              <Link href="#">
+                <div className="flex items-center gap-[1em] font-space"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openAppWithFallback('twitter://user?screen_name=useuptions', 'https://twitter.com/useuptions');
+                  }}>
                   <h1>Twitter</h1>
                   <Image src={twitter} alt="twitter logo" />
                 </div>
               </Link>
 
-              <Link href="linkedin://company/uptions">
-                <div className="flex items-center gap-[1em] font-space">
+              <Link href="#">
+                <div className="flex items-center gap-[1em] font-space"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openAppWithFallback('linkedin://company/uptions', 'https://www.linkedin.com/company/uptions/');
+                  }}>
                   <h1>LinkedIn</h1>
                   <Image src={Linkedin} alt="linkedin logo" />
                 </div>
