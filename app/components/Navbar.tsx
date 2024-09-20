@@ -1,7 +1,6 @@
-"use client";
-
+"use client"
 import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation"; // Import usePathname for Next.js App Router
+import { usePathname } from "next/navigation"; 
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/public/assets/images/logo.svg";
@@ -12,17 +11,15 @@ import twitter from "@/public/assets/images/twitter.svg";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hovered, setHovered] = useState<string | null>(null); // Manage hover state
-  const pathname = usePathname(); // Initialize usePathname to detect the current route
-  const dropdownRef = useRef<HTMLDivElement>(null); // Reference to the dropdown container
+  const [hovered, setHovered] = useState<string | null>(null); 
+  const pathname = usePathname(); 
+  const dropdownRef = useRef<HTMLDivElement>(null); 
 
-  // Toggle the menu using the hamburger button
   const toggleMenu = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent triggering the document's click listener
-    setIsOpen((prev) => !prev); // Toggle the state to open or close the menu
+    e.stopPropagation(); 
+    setIsOpen((prev) => !prev); 
   };
 
-  // Close the menu when scrolling
   useEffect(() => {
     if (isOpen) {
       const handleScroll = () => {
@@ -37,7 +34,6 @@ const Nav = () => {
     }
   }, [isOpen]);
 
-  // Handle clicks outside the dropdown to close the menu
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -45,7 +41,6 @@ const Nav = () => {
       }
     };
 
-    // Add the event listener for clicks outside the dropdown
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
@@ -53,7 +48,6 @@ const Nav = () => {
     };
   }, [dropdownRef]);
 
-  // Function to check if the current route matches
   const isRouteActive = (path: string) => pathname === path;
 
   return (
@@ -70,8 +64,7 @@ const Nav = () => {
         </a>
       </div>
 
-      {/* Menu for larger screen */}
-      <div className="bg-[#001B6C] hidden   font-space lg:flex justify-center backdrop-blur-sm items-center gap-[2em] px-[2em] h-[5em] rounded-t-[30.6px] rounded-b-md mx-auto border-[1.5px] border-blue-300 shadow-xl">
+      <div className="bg-[#001B6C] hidden font-space lg:flex justify-center backdrop-blur-sm items-center gap-[2em] px-[2em] h-[5em] rounded-t-[30.6px] rounded-b-md mx-auto border-[1.5px] border-blue-300 shadow-xl">
         <Link href="/">
           <div
             onMouseEnter={() => setHovered("/")}
@@ -81,7 +74,6 @@ const Nav = () => {
             <h1 className="w-full text-[20px] font-[400] text-center">
               Join Waitlist
             </h1>
-            {/* Reserved space for the doodle */}
             <div
               className={`w-[100px] flex items-center justify-center transition-all duration-500 transform ${
                 isRouteActive("/") || hovered === "/"
@@ -89,8 +81,7 @@ const Nav = () => {
                   : "opacity-0 scale-75"
               }`}
             >
-              <Image src={Doodle} width={100} height={20} alt="doodle" />{" "}
-              {/* Ensure height is set to auto */}
+              <Image src={Doodle} width={100} height={20} alt="doodle" />
             </div>
           </div>
         </Link>
@@ -100,19 +91,36 @@ const Nav = () => {
         <h1 className="font-space text-[#001B6C] text-[20px] font-[400] ">
           Follow us on
         </h1>
-        <a href="https://x.com/useuptions?t=L9pIIsBq9auVnGuCVMYL9w&s=09" className="">
+
+        {/* Deeplink Twitter */}
+        <a
+          href="twitter://user?screen_name=useuptions"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = 'twitter://user?screen_name=useuptions';
+            setTimeout(() => {
+              window.location.href = 'https://twitter.com/useuptions';
+            }, 500); // Fallback to web after 500ms if the app is not installed
+          }}
+        >
           <Image src={twitter} alt="twitter logo" />
         </a>
-        <a href="https://www.linkedin.com/company/uptions/">
-          <Image
-            src={Linkedin}
-            alt="linkedin logo"
-            className="h-[24px] w-[24px]"
-          />
+
+        {/* Deeplink LinkedIn */}
+        <a
+          href="linkedin://company/uptions"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = 'linkedin://company/uptions';
+            setTimeout(() => {
+              window.location.href = 'https://www.linkedin.com/company/uptions/';
+            }, 500); // Fallback to web after 500ms if the app is not installed
+          }}
+        >
+          <Image src={Linkedin} alt="linkedin logo" className="h-[24px] w-[24px]" />
         </a>
       </div>
 
-      {/* Hamburger for mobile screens */}
       <div className="xl:hidden mt-[10px] w-[10em] flex items-end justify-end">
         <button onClick={toggleMenu} className="focus:outline-none">
           <motion.svg
@@ -123,38 +131,35 @@ const Nav = () => {
             stroke="currentColor"
             strokeWidth="2"
           >
-            {/* Top Line */}
             <motion.path
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M4 6h16"
-              initial={{ rotate: 0, y: 0 }} // Ensure initial state is correct
+              initial={{ rotate: 0, y: 0 }}
               animate={{
                 rotate: isOpen ? 45 : 0,
-                y: isOpen ? 8 : 0, // Move the line down when open
+                y: isOpen ? 8 : 0,
               }}
               transition={{ duration: 0.1 }}
             />
-            {/* Middle Line */}
             <motion.path
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M4 12h16"
-              initial={{ opacity: 1 }} // Ensure initial opacity
+              initial={{ opacity: 1 }}
               animate={{
-                opacity: isOpen ? 0 : 1, // Hide when open
+                opacity: isOpen ? 0 : 1,
               }}
               transition={{ duration: 0.3 }}
             />
-            {/* Bottom Line */}
             <motion.path
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M4 18h16"
-              initial={{ rotate: 0, y: 0 }} // Ensure initial state is correct
+              initial={{ rotate: 0, y: 0 }}
               animate={{
                 rotate: isOpen ? -45 : 0,
-                y: isOpen ? -4 : 0, // Move the line up when open
+                y: isOpen ? -4 : 0,
               }}
               transition={{ duration: 0.3 }}
             />
@@ -162,11 +167,10 @@ const Nav = () => {
         </button>
       </div>
 
-      {/* Mobile Menu with Framer Motion Animation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute top-[70px] left-1/2 transform -translate-x-1/2  border-[1.5px] border-blue-600 bg-[#001b6cd3] md:mt-[5em] mt-[2em] w-[80%] md:w-[60%] h-auto flex flex-col items-center justify-center shadow-lg xl:hidden rounded-t-md rounded-b-3xl z-50 overflow-hidden"
+            className="absolute top-[70px] left-1/2 transform -translate-x-1/2 border-[1.5px] border-blue-600 bg-[#001b6cd3] md:mt-[5em] mt-[2em] w-[80%] md:w-[60%] h-auto flex flex-col items-center justify-center shadow-lg xl:hidden rounded-t-md rounded-b-3xl z-50 overflow-hidden"
             initial={{ opacity: 0, height: 0, overflow: "hidden" }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0, overflow: "hidden" }}
@@ -176,16 +180,16 @@ const Nav = () => {
               <li className="text-white list-none font-space cursor-pointer font-normal text-[20px]">
                 Follow the journey on
               </li>
-              <Link href="https://x.com/useuptions?t=L9pIIsBq9auVnGuCVMYL9w&s=09">
+              <Link href="twitter://user?screen_name=useuptions">
                 <div className="flex items-center gap-[1em] font-space">
-                  <h1> Twitter</h1>
-                  <Image src={twitter} alt="twitter logo"></Image>
+                  <h1>Twitter</h1>
+                  <Image src={twitter} alt="twitter logo" />
                 </div>
               </Link>
 
-              <Link href="https://www.linkedin.com/company/uptions/">
+              <Link href="linkedin://company/uptions">
                 <div className="flex items-center gap-[1em] font-space">
-                  <h1>Linkedin</h1>
+                  <h1>LinkedIn</h1>
                   <Image src={Linkedin} alt="linkedin logo" />
                 </div>
               </Link>
