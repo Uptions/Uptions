@@ -103,7 +103,7 @@ const Waitlist = () => {
           <form onSubmit={handleSubmit} className="flex items-center w-full backdrop-blur-md border-blue-600 px-[3px] py-[2px] md:py-[4px] lg:px-[5px] border-[1px] bg-[rgba(0,123,255,0.2)] rounded-full z-20">
             <input
               type="email"
-              placeholder="type your email"
+              placeholder="Type your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full text-[#007BFFBF] p-3 bg-transparent outline-none placeholder-[#007BFFBF] md:text-[20px] text-[12px] font-space"
