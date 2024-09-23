@@ -100,7 +100,7 @@ const Waitlist = () => {
 
         {/* Waitlist input and button */}
         <div className="flex justify-center mt-6 w-[80%] md:w-[50%] lg:w-[50%] mx-auto">
-          {/* <form onSubmit={handleSubmit} className="flex items-center w-full backdrop-blur-md border-blue-600 px-[3px] py-[2px] md:py-[4px] lg:px-[5px] border-[1px] bg-[rgba(0,123,255,0.2)] rounded-full z-20">
+          <form onSubmit={handleSubmit} className="flex items-center w-full backdrop-blur-md border-blue-600 px-[3px] py-[2px] md:py-[4px] lg:px-[5px] border-[1px] bg-[rgba(0,123,255,0.2)] rounded-full z-20">
             <input
               type="email"
               placeholder="type your email"
@@ -114,20 +114,8 @@ const Waitlist = () => {
             >
               JOIN WAITLIST
             </button>
-          </form> */}
-          <iframe
-            src="https://embeds.beehiiv.com/0371a74b-7af8-4f28-ace7-36597595cdc4?slim=true"
-            data-test-id="beehiiv-embed"
-            height="80px"
-            width="500px"
-            frameBorder="10"
-            scrolling="no"
-            style={{
-              margin: 10,
-              borderRadius: "px",
-              backgroundColor: "",
-            }}
-          ></iframe>
+          </form>
+      
         </div>
 
         {/* Error or Success Message */}
