@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import bike3 from "@/public/assets/images/Delivery Man Riding Scooter (1).svg";
 import biketwo from "@/public/assets/images/Delivery Man Riding Scooter (2).svg";
@@ -12,6 +12,7 @@ const Waitlist = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false); // Add loading state
   const [isError, setIsError] = useState(false); // Track error state
+  const [showMessage, setShowMessage] = useState(true); // Track visibility of message
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,6 +22,7 @@ const Waitlist = () => {
     if (!emailPattern.test(email)) {
       setMessage('Please enter a valid Gmail address.');
       setIsError(true);
+      setShowMessage(true); // Show message
       return;
     }
 
@@ -41,23 +43,38 @@ const Waitlist = () => {
         // Handle conflict (email already signed up)
         setMessage('Email has already been signed up for our waitlist.');
         setIsError(true); // Set error state to true
+        setShowMessage(true); // Show message
       } else if (!response.ok) {
         // Handle other errors
         setMessage(`Error: ${data.error || 'Something went wrong. Please try again.'}`);
         setIsError(true); // Set error state to true
+        setShowMessage(true); // Show message
       } else {
         // Successful signup
         setMessage('Successfully added to the waitlist!');
         setIsError(false); // Clear error state on success
+        setShowMessage(true); // Show message
         setEmail(''); // Clear email input on success
       }
     } catch (error) {
       setMessage('Something went wrong. Please try again.');
       setIsError(true);
+      setShowMessage(true); // Show message
     } finally {
       setLoading(false); // Set loading to false after the request is done
     }
   };
+
+  useEffect(() => {
+    if (message && !isError) {
+      // Set timeout to hide message after 5 seconds
+      const timer = setTimeout(() => {
+        setShowMessage(false);
+      }, 5000);
+
+      return () => clearTimeout(timer); // Cleanup on unmount or when message changes
+    }
+  }, [message, isError]);
 
   return (
     <div className="w-full mt-[3em] font-space">
@@ -95,7 +112,7 @@ const Waitlist = () => {
         </div>
 
         {/* Error or Success Message */}
-        {message && (
+        {showMessage && message && (
           <p className={`font-space mt-4 ${isError ? 'text-red-300' : 'text-[#007BFF]'}`}>{message}</p>
         )}
 

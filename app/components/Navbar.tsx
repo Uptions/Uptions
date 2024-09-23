@@ -1,6 +1,7 @@
-"use client"
+"use client";
+
 import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation"; 
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/public/assets/images/logo.svg";
@@ -11,13 +12,13 @@ import twitter from "@/public/assets/images/twitter.svg";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hovered, setHovered] = useState<string | null>(null); 
-  const pathname = usePathname(); 
-  const dropdownRef = useRef<HTMLDivElement>(null); 
+  const [hovered, setHovered] = useState<string | null>(null);
+  const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = (e: React.MouseEvent) => {
-    e.stopPropagation(); 
-    setIsOpen((prev) => !prev); 
+    e.stopPropagation();
+    setIsOpen((prev) => !prev);
   };
 
   useEffect(() => {
@@ -36,7 +37,10 @@ const Nav = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -50,30 +54,14 @@ const Nav = () => {
 
   const isRouteActive = (path: string) => pathname === path;
 
-  const openAppWithFallback = (appUrl: string, fallbackUrl: string) => {
-    const iframe = document.createElement("iframe");
-    iframe.style.display = "none";
-    iframe.src = appUrl;
-    document.body.appendChild(iframe);
-
-    // Fallback to web version after a delay (e.g., 2 seconds)
-    setTimeout(() => {
-      document.body.removeChild(iframe);
-      window.location.href = fallbackUrl;
-    }, 2000); // 2 seconds delay before redirecting to the web URL
-  };
-
   return (
-    <div className="flex justify-between items-center px-[2em]" ref={dropdownRef}>
+    <div
+      className="flex justify-between items-center px-[2em]"
+      ref={dropdownRef}
+    >
       <div>
         <a href="/" className="w-[30%]">
-          <Image
-            src={Logo}
-            alt="logo"
-            height={100}
-            width={200}
-            className=""
-          />
+          <Image src={Logo} alt="logo" height={100} width={200} className="" />
         </a>
       </div>
 
@@ -107,10 +95,13 @@ const Nav = () => {
 
         {/* Deeplink Twitter */}
         <a
-          href="#"
+          href="twitter://user?screen_name=useuptions"
           onClick={(e) => {
             e.preventDefault();
-            openAppWithFallback('twitter://user?screen_name=useuptions', 'https://twitter.com/useuptions');
+            window.location.href = "twitter://user?screen_name=useuptions";
+            setTimeout(() => {
+              window.location.href = "https://twitter.com/useuptions";
+            }, 500); // Fallback to web after 500ms if the app is not installed
           }}
         >
           <Image src={twitter} alt="twitter logo" />
@@ -118,13 +109,21 @@ const Nav = () => {
 
         {/* Deeplink LinkedIn */}
         <a
-          href="#"
+          href="linkedin://company/uptions"
           onClick={(e) => {
             e.preventDefault();
-            openAppWithFallback('linkedin://company/uptions', 'https://www.linkedin.com/company/uptions/');
+            window.location.href = "linkedin://company/uptions";
+            setTimeout(() => {
+              window.location.href =
+                "https://www.linkedin.com/company/uptions/";
+            }, 500); // Fallback to web after 500ms if the app is not installed
           }}
         >
-          <Image src={Linkedin} alt="linkedin logo" className="h-[24px] w-[24px]" />
+          <Image
+            src={Linkedin}
+            alt="linkedin logo"
+            className="h-[24px] w-[24px]"
+          />
         </a>
       </div>
 
@@ -187,23 +186,35 @@ const Nav = () => {
               <li className="text-white list-none font-space cursor-pointer font-normal text-[20px]">
                 Follow the journey on
               </li>
-              <Link href="#">
-                <div className="flex items-center gap-[1em] font-space"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    openAppWithFallback('twitter://user?screen_name=useuptions', 'https://twitter.com/useuptions');
-                  }}>
+              <Link
+                href="twitter://user?screen_name=useuptions"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href =
+                    "twitter://user?screen_name=useuptions";
+                  setTimeout(() => {
+                    window.location.href = "https://twitter.com/useuptions";
+                  }, 500); // Fallback to web after 500ms if the app is not installed
+                }}
+              >
+                <div className="flex items-center gap-[1em] font-space">
                   <h1>Twitter</h1>
                   <Image src={twitter} alt="twitter logo" />
                 </div>
               </Link>
 
-              <Link href="#">
-                <div className="flex items-center gap-[1em] font-space"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    openAppWithFallback('linkedin://company/uptions', 'https://www.linkedin.com/company/uptions/');
-                  }}>
+              <Link
+                href="linkedin://company/uptions"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "linkedin://company/uptions";
+                  setTimeout(() => {
+                    window.location.href =
+                      "https://www.linkedin.com/company/uptions/";
+                  }, 500); // Fallback to web after 500ms if the app is not installed
+                }}
+              >
+                <div className="flex items-center gap-[1em] font-space">
                   <h1>LinkedIn</h1>
                   <Image src={Linkedin} alt="linkedin logo" />
                 </div>
