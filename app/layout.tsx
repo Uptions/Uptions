@@ -9,7 +9,7 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: "Uptions",
-  description: "built by a set of people that love creating solutions",
+  description: "One app, endless delivery Uptions",
 };
 
 export default function RootLayout({
