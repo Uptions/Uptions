@@ -6,6 +6,7 @@ import bike3 from "@/public/assets/images/Delivery Man Riding Scooter (1).svg";
 import biketwo from "@/public/assets/images/Delivery Man Riding Scooter (2).svg";
 import bikeone from "@/public/assets/images/Delivery Man Riding Scooter.svg";
 import { ClipLoader } from "react-spinners"; // Import the spinner
+import bike4 from "@/public/assets/images/bikeman4.svg"
 
 const Waitlist = () => {
   const [email, setEmail] = useState("");
@@ -53,7 +54,7 @@ const Waitlist = () => {
         setShowMessage(true); // Show message
       } else {
         // Successful signup
-        setMessage("Successfully added to the waitlist!");
+        setMessage("Welcome to Uptions, please check your inbox");
         setIsError(false); // Clear error state on success
         setShowMessage(true); // Show message
         setEmail(""); // Clear email input on success
@@ -100,7 +101,7 @@ const Waitlist = () => {
 
         {/* Waitlist input and button */}
         <div className="flex justify-center mt-6 w-[80%] md:w-[50%] lg:w-[50%] mx-auto">
-          <form onSubmit={handleSubmit} className="flex items-center w-full backdrop-blur-md border-blue-600 px-[3px] py-[2px] md:py-[4px] lg:px-[5px] border-[1px] bg-[rgba(0,123,255,0.2)] rounded-full z-20">
+          <form onSubmit={handleSubmit} className="flex items-center w-full backdrop-blur-md border-blue-600 px-[3px] py-[2px] md:py-[4px] lg:px-[5px] border-[1px] bg-[rgba(0,123,255,0.2)] rounded-full z-20" id="waitlist">
             <input
               type="email"
               placeholder="Type your email"
@@ -149,7 +150,7 @@ const Waitlist = () => {
 
       {/* Animated Bikes */}
       <div className="">
-        <div className="absolute  z-0 top-[55%] lg:right-[-200px] right-[-30px] md:right-[-70px] transform -rotate-12 lg:animate-bike1 md:animate-bike1Subtle2 animate-bike1Subtle pointer-events-none">
+        <div className="absolute hidden lg:block z-0 top-[55%] lg:right-[-200px] right-[-30px] md:right-[-70px] transform -rotate-12 lg:animate-bike1 md:animate-bike1Subtle2 animate-bike1Subtle pointer-events-none">
           <Image
             src={bikeone}
             width={200}
@@ -169,13 +170,23 @@ const Waitlist = () => {
           />
         </div>
 
-        <div className="lg:block absolute top-[40%] hidden left-[-200px] transform rotate-6 animate-bike3">
+        <div className="lg:block absolute top-[40%] hidden  left-[-200px] transform rotate-6 animate-bike3">
           <Image
             src={biketwo}
             width={200}
             height={200}
             alt="Delivery Man Riding Scooter 3"
             className="w-[400px] md:w-[456px] h-[180px] md:h-[224px]"
+          />
+        </div>
+        {/* bike that displays only on mobile */}
+        <div className="absolute top-[60%] lg:hidden block left-[20px] transform -rotate-12 animate-bike4 md:animate-bike4medium ">
+          <Image
+            src={bike4}
+            width={200}
+            height={200}
+            alt="Delivery Man Riding Scooter 2"
+            className="w-[500px] h-[550px]"
           />
         </div>
       </div>

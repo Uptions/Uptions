@@ -18,7 +18,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: data.message || 'Error occurred' }, { status: response.status });
     }
 
-    return NextResponse.json({ message: 'Successfully added to the waitlist!' }, { status: 200 });
+    return NextResponse.json({ message: 'Welcome to Uptions, please check your inbox' }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
   }

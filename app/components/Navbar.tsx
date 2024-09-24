@@ -9,6 +9,7 @@ import Link from "next/link";
 import Doodle from "@/public/assets/images/doodle.svg";
 import Linkedin from "@/public/assets/images/linkedin.svg";
 import twitter from "@/public/assets/images/twitter.svg";
+import instagram from "@/public/assets/images/instagram.svg";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +61,7 @@ const Nav = () => {
       ref={dropdownRef}
     >
       <div>
-        <a href="/" className="w-[30%]">
+        <a href="/" className="w-[20%]">
           <Image src={Logo} alt="logo" height={100} width={200} className="" />
         </a>
       </div>
@@ -122,6 +123,24 @@ const Nav = () => {
           <Image
             src={Linkedin}
             alt="linkedin logo"
+            className="h-[24px] w-[24px]"
+          />
+        </a>
+
+        {/* Deeplink Instagram */}
+        <a
+          href="instagram://user?username=useuptions"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "instagram://user?username=useuptions";
+            setTimeout(() => {
+              window.location.href = "https://www.instagram.com/useuptions";
+            }, 500); // Fallback to web after 500ms if the app is not installed
+          }}
+        >
+          <Image
+            src={instagram}
+            alt="instagram logo"
             className="h-[24px] w-[24px]"
           />
         </a>
@@ -217,6 +236,23 @@ const Nav = () => {
                 <div className="flex items-center gap-[1em] font-space">
                   <h1>LinkedIn</h1>
                   <Image src={Linkedin} alt="linkedin logo" />
+                </div>
+              </Link>
+
+              <Link
+                href="instagram://user?username=useuptions"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "instagram://user?username=useuptions";
+                  setTimeout(() => {
+                    window.location.href =
+                      "https://www.instagram.com/useuptions";
+                  }, 500); // Fallback to web after 500ms if the app is not installed
+                }}
+              >
+                <div className="flex items-center gap-[1em] font-space">
+                  <h1>Instagram</h1>
+                  <Image src={instagram} alt="instagram logo" />
                 </div>
               </Link>
             </ul>

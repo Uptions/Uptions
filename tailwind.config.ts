@@ -21,15 +21,6 @@ const config: Config = {
           "0%": { transform: "translateX(200%) rotate(12deg)" },
           "100%": { transform: "translateX(-10%) translateY(-50%) rotate(0)" },
         },
-        bike1Subtle: {
-          "0%": { transform: "translateX(200%) rotate(12deg)" },
-          "100%": { transform: "translateX(-10%) translateY(-98%) rotate(0)" },
-        },
-        bike1Subtle2: {
-          "0%": { transform: "translateX(200%) rotate(12deg)" },
-          "100%": { transform: "translateX(-10%) translateY(-78%) rotate(0)" },
-        },
-
         bike2: {
           "0%": {
             transform: "translateX(-200%) translateY(200%) rotate(-12deg)",
@@ -40,13 +31,26 @@ const config: Config = {
           "0%": { transform: "translateX(-200%) rotate(6deg)" },
           "100%": { transform: "translateX(25%) translateY(-40%) rotate(0)" },
         },
+        bike4: {
+          "0%": {
+            transform: "translateX(-200%) translateY(200%) rotate(-12deg)",
+          },
+          "100%": { transform: "translateX(-5%) translateY(-35%) rotate(0)" },
+        },
+        bike4medium: {
+          "0%": {
+            transform: "translateX(-200%) translateY(200%) rotate(-12deg)",
+          },
+          "100%": { transform: "translateX(20%) translateY(-25%) rotate(0)" },
+        },
+
       },
       animation: {
         bike1: "bike1 3s ease-out forwards",
-        bike1Subtle: "bike1Subtle 3s ease-out forwards",
-        bike1Subtle2: "bike1Subtle2 3s ease-out forwards",
         bike3: "bike3 3s ease-out forwards",
         bike2: "bike2 3s ease-out forwards",
+        bike4: "bike4 3s ease-out forwards",
+        bike4medium: "bike4medium 3s ease-out forwards",
       },
       fontFamily: {
         space: ["Space Grotesk", "sans-serif"],
