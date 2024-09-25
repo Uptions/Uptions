@@ -142,7 +142,7 @@ const Waitlist = () => {
           href="https://docs.google.com/forms/d/e/1FAIpQLSfT69uhrTbxMQO1nRgR-yBQ2aUXxfDqJUbFHib35GDSTgp6Gw/viewform?usp=sf_link"
           target="_blank"
           rel="noopener noreferrer"
-          className="md:mt-[2em] mt-[1em] block text-[#007BFF] font-[700] text-[16px] md:text-[21px]  mx-auto  border-b-[2px] border-[#007BFF]"
+          className="md:mt-[2em] z-20 mt-[1em] block text-[#007BFF] font-[700] text-[16px] md:text-[21px]  mx-auto  border-b-[2px] border-[#007BFF]"
         >
           Take a survey
         </a>
@@ -180,7 +180,7 @@ const Waitlist = () => {
           />
         </div>
         {/* bike that displays only on mobile */}
-        <div className="absolute top-[60%] lg:hidden block left-[20px] transform -rotate-12 animate-bike4 md:animate-bike4medium ">
+        <div className="absolute top-[60%] lg:hidden block left-[20px] transform -rotate-12 animate-bike4 md:animate-bike4medium z-0">
           <Image
             src={bike4}
             width={200}
