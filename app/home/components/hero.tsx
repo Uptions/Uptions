@@ -2,14 +2,14 @@ import React from "react";
 import Image from "next/image";
 import Splash from "@/public/assets/images/Frame.svg";
 import Doodle from "@/public/assets/images/herodoodle.svg";
-import Highway from "@/public/assets/images/Highway.svg"
+
 
 
 
 const Hero = () => {
   return (
    
-      <div className="cursor-pointer text-black font-space flex flex-col items-center mt-[1em] group">
+      <div className="cursor-pointer text-black font-space flex flex-col items-center mt-[em] group">
         <div className="flex">
           <h1 className="text-[#007BFF] font-[400] text-[100px]">One app,</h1>
           <Image
@@ -28,13 +28,11 @@ const Hero = () => {
           alt="doodle"
           className="transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-5 opacity-0 scale-50 mr-[4em]"
         />
-        <p className="font-[400] text-[30px] mt-[2em] mb-[2em] ">
+        <p className="font-[400] text-[30px] mt-[1em] mb-[1em] ">
           find the <span className="text-[#007BFF] ">Best delivery deals</span>{" "}
           in one place!
         </p>
-        <div>
-          <Image src={Highway} alt="highway" className="w-[100vw]"/>
-        </div>
+
       </div>
       
    

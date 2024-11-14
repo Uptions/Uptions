@@ -56,7 +56,7 @@ const Nav = () => {
         ref={dropdownRef}
       >
         <div>
-          <a href="/" className="w-[10%]">
+          <a href="/" className="w-[8%]">
             <Image src={Logo} alt="logo" height={100} width={200} />
           </a>
         </div>

@@ -31,6 +31,10 @@ const config: Config = {
           "0%": { transform: "translateX(-200%) rotate(6deg)" },
           "100%": { transform: "translateX(25%) translateY(-40%) rotate(0)" },
         },
+        bikehero: {
+          "0%": { transform: "translateX(-30%) rotate(6deg)" },
+          "100%": { transform: "translateX(1000%) translateY(-10%) rotate(0)" },
+        },
         bike4: {
           "0%": {
             transform: "translateX(-200%) translateY(200%) rotate(-12deg)",
@@ -44,12 +48,14 @@ const config: Config = {
           "100%": { transform: "translateX(20%) translateY(-25%) rotate(0)" },
         },
 
+
       },
       animation: {
         bike1: "bike1 3s ease-out forwards",
         bike3: "bike3 3s ease-out forwards",
         bike2: "bike2 3s ease-out forwards",
         bike4: "bike4 3s ease-out forwards",
+        bikehero: "bikehero 20s ease-out forwards",
         bike4medium: "bike4medium 3s ease-out forwards",
       },
       fontFamily: {
