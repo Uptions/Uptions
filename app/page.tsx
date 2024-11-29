@@ -1,14 +1,33 @@
+"use client"
+import React from 'react';
+import Navbar from '@/app/components/navbar';
+import Hero from '@/app/components/hero';
+import Unlock from '@/app/components/unlock';
+import styled from 'styled-components';
+import How from '@/app/components/how-we-work'
 
-import Navbar from "./components/Navbar";
-import Waitlist from "./components/waitlist";
-import "./page.css"
+const Background = styled.div`
+  background-image: url("/assets/images/mvpBackground.svg"); // Replace with your image path
+  background-size: cover;
+  background-position: center;
+ 
+  width: 100%;
+`;
 
 
-export default function Home() {
+const Page = () => {
   return (
-    <div className=" page px-[0.5em] lg:px-[70px] py-[2em] md:py-[50px] w-full md:min-h-screen h-full overflow-hidden relative ">
+   <Background>
+      <div className='pt-[2em]'>
       <Navbar />
-      <Waitlist/>
-    </div>
+      <Hero />
+      <Unlock />
+      <How/>
+      </div>
+      </Background>
+
+
   );
-}
+};
+
+export default Page;
