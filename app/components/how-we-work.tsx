@@ -35,14 +35,14 @@ const HowWork = () => {
   }, []);
 
   return (
-    <div className="bg-white text-center font-space pt-[5em]">
+    <div className="bg-white text-center font-space pt-[5em] pb-[15em]">
       <div>
         <h1 className="text-[#007BFF] font-[700] text-[50px] card card1">
           How <span className="text-black">Uptions</span> work
         </h1>
       </div>
 
-      <div className="flex justify-between px-[5em] mt-[3em]">
+      <div className="flex items-center gap-[3em] justify-center px-[5em] mt-[3em]">
         <div className="card card1">
           <Image src={s1} alt="man 1" />
         </div>

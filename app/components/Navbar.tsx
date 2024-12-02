@@ -10,7 +10,7 @@ import Doodle from "@/public/assets/images/Doodle.svg";
 import styled from "styled-components";
 
 const NAV_LINKS = [
-  { label: "Home", path: "/home" },
+  { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Join Waitlist", path: "/waitlist" },
   { label: "Be an Uption", path: "/become-uption" },
@@ -52,7 +52,7 @@ const Nav = () => {
   return (
     
       <div
-        className="flex justify-between items-center px-[2em] py-[1em] bg-[#001E62] rounded-full mx-[2em] sticky top-0 z-50"
+        className="flex justify-between items-center px-[1.5em] py-[1em] bg-[#001E62] rounded-full mx-[2em] sticky top-[2em] z-10  shadow-lg shadow-gray-800"
         ref={dropdownRef}
       >
         <div>
@@ -61,7 +61,7 @@ const Nav = () => {
           </a>
         </div>
 
-        <div className="bg-[rgba(0,123,255,0.2)] hidden font-space lg:flex justify-center backdrop-blur-md items-center px-[2em] h-[5em] rounded-full mx-auto border-[1px] border-blue-300 shadow-xl py-[0.5em]">
+        <div className="bg-[rgba(0,123,255,0.34)] hidden font-space lg:flex justify-center backdrop-blur-sm items-center px-[2em] h-[5em] rounded-full mx-auto border-[1px] border-blue-300 shadow-xl py-[em]">
           {NAV_LINKS.map(({ label, path }) => (
             <Link href={path} key={path}>
               <div
@@ -86,7 +86,7 @@ const Nav = () => {
           ))}
         </div>
 
-        <button className="bg-[#007BFF] py-5 px-6 rounded-full h-full text-[17px] hidden lg:block">
+        <button className="bg-[#007BFF] py-[1.5em] font-space px-6 rounded-full h-full text-[17px] hidden lg:block">
           Try out Uptions
         </button>
 
