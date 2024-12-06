@@ -109,7 +109,7 @@ const WhyChoose = () => {
 
   return (
     <div
-      className="flex flex-col font-space py-[6em] px-[5em] 2xl:px-[18em] bg-cover bg-center"
+      className="flex flex-col font-space pt-[6em] pb-[1em] px-[5em] 2xl:px-[18em] bg-cover bg-center"
       style={{
         backgroundImage: "url('/assets/images/Bluebg.svg')", // Your image path here
       }}
@@ -119,7 +119,7 @@ const WhyChoose = () => {
         style={{
           backgroundColor: backgroundColors[currentIndex], // Dynamically change background color
         }}
-        className={`bg-[#DEEEFF] flex flex-col justify-center items-center rounded-2xl mt-[-13em] pt-[2em] ${
+        className={`bg-[#DEEEFF] flex flex-col justify-center items-center rounded-2xl mt-[-15em] pt-[2em] ${
           currentIndex === 2 ? "border-2 border-[#007BFF]" : "" // Border for 3rd card
         }`}
       >
@@ -128,7 +128,11 @@ const WhyChoose = () => {
           {renderCarouselText(carouselText[currentIndex])}
         </div>
 
-        <Image src={Doodle} alt="doodle image" className="mb-[1em]" />
+        <Image
+          src={Doodle}
+          alt="doodle image"
+          className={`mb-[1em] ${currentIndex !== 0 ? "hidden" : ""}`}
+        />
 
         {/* Carousel */}
         <div className="relative w-full flex justify-center items-center overflow-hidden">
@@ -176,10 +180,13 @@ const WhyChoose = () => {
           </h1>
         </div>
       </div>
-      <div className="flex mt-[2em]">
+      <div className="flex mt-[2em] mb-[2em] ">
         <div className="w-full font-[300] text-[18px] font-mono mt-[1em]">
           <p>Forget the stress of hopping from one delivery service</p>
-          <p>to another. <span className="font-[700]">Uptions</span> helps you manage all your</p>
+          <p>
+            to another. <span className="font-[700]">Uptions</span> helps you
+            manage all your
+          </p>
           <p>deliveries from a single platform, so you can track and</p>
           <p>pay in one place.</p>
         </div>

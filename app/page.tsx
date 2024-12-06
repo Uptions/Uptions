@@ -7,6 +7,8 @@ import styled from "styled-components";
 import How from "@/app/components/how-we-work";
 import WhyChoose from "@/app/components/whychoose";
 import WhoCanUse from "@/app/components/whocanuse"
+import Faq from "@/app/components/faq"
+import Footer from '@/app/components/Footer'
 
 const Background = styled.div`
   background-image: url("/assets/images/mvpBackground.svg");
@@ -30,6 +32,8 @@ const Page = () => {
           <How />
           <WhyChoose />
           <WhoCanUse/>
+          <Faq/>
+          <Footer/>
         </div>
       </div>
     </>

@@ -11,13 +11,13 @@ import Tag7 from "@/public/assets/images/tag7.svg"
 const whoCanUse = () => {
   return (
     <div
-    className="flex font-space justify-between p-[2em]"
+    className="flex font-space justify-between py-[2em] px-[5em] 2xl:px-[18em]"
     style={{
       backgroundImage: "url('/assets/images/SkyBluebg.svg')", // Your image path here
     }}>
         <div>
             <h1 className='font-[400] text-[40px] '>
-            Who can use Uptions?
+            Who can use <span className='text-[#001B6C]'>Uptions?</span>
             </h1>
         </div>
         <div className='flex flex-col gap-[2em]'>
