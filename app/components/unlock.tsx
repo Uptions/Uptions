@@ -1,120 +1,32 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Highway from "@/public/assets/images/Highway.svg";
 import Bike from "@/public/assets/images/Deliveryman2.png";
 import Woman from "@/public/assets/images/woman2.svg";
 import tag1 from "@/public/assets/images/4.svg";
 import tag2 from "@/public/assets/images/1.svg";
-import tag3 from "@/public/assets/images/2.svg"
-import tag4 from "@/public/assets/images/3.svg"
-import ScrollReveal from "scrollreveal";
+import tag3 from "@/public/assets/images/2.svg";
+import tag4 from "@/public/assets/images/3.svg";
 
 const Unlock = () => {
-  const bikeRef = useRef<HTMLImageElement | null>(null); // Ref for the bike image
-
-  useEffect(() => {
-    // Initialize ScrollReveal for taglines with different delays
-    ScrollReveal().reveal('.tagline1', {
-      origin: 'bottom',
-      distance: '50px',
-      duration: 1000,
-      reset: true,
-      easing: 'ease-in-out',
-      delay: 300, // Tagline1 appears first
-    });
-    ScrollReveal().reveal('.text', {
-      origin: 'left',
-      distance: '50px',
-      duration: 1000,
-      reset: true,
-      easing: 'ease-in-out',
-      delay: 300, // Tagline1 appears first
-    });
-    
-    ScrollReveal().reveal('.tagline2', {
-      origin: 'bottom',
-      distance: '50px',
-      duration: 1000,
-      reset: true,
-      easing: 'ease-in-out',
-      delay: 600, // Tagline2 appears second
-    });
-    
-    ScrollReveal().reveal('.tagline3', {
-      origin: 'bottom',
-      distance: '50px',
-      duration: 1000,
-      reset: true,
-      easing: 'ease-in-out',
-      delay: 900, // Tagline3 appears third
-    });
-    
-    ScrollReveal().reveal('.tagline4', {
-      origin: 'bottom',
-      distance: '50px',
-      duration: 1000,
-      reset: true,
-      easing: 'ease-in-out',
-      delay: 1200, // Tagline4 appears last
-    });
-  }, []);
-   
-  useEffect(() => {
-    // Function to reset animation
-    const resetAnimation = () => {
-      const bikeElement = bikeRef.current;
-
-      if (bikeElement) {
-        bikeElement.classList.remove("animate-bikehero"); // Remove animation
-        void bikeElement.offsetWidth; // Trigger reflow to restart the animation
-        bikeElement.classList.add("animate-bikehero"); // Reapply animation
-      }
-    };
-
-    // IntersectionObserver callback
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry: IntersectionObserverEntry) => {
-        if (!entry.isIntersecting) {
-          // If the bike leaves the viewport
-          setTimeout(() => {
-            resetAnimation(); // Restart animation after 5 seconds
-          });
-        }
-      });
-    };
-
-    // Create and observe IntersectionObserver
-    const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.1, // Trigger when 10% is visible
-    });
-
-    const bikeElement = bikeRef.current;
-    if (bikeElement) observer.observe(bikeElement);
-
-    // Cleanup observer on component unmount
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div className="font-space bg-white ">
+    <div className="font-space bg-white">
       <div className="relative">
         <Image src={Highway} alt="highway" className="w-[100vw]" />
-        <Image
-          ref={bikeRef}
-          src={Bike}
-          alt="bike image"
-          className="absolute top-[-4px] animate-bikehero"
-        />
-                <Image
-          ref={bikeRef}
-          src={Bike}
-          alt="bike image"
-          className="absolute top-[-4px] left-[80em] animate-bikehero"
-        />
 
+        {/* Animated Bike Image */}
+        <motion.div
+          className="absolute top-[-4px]"
+          animate={{ x: [0, 100, 200] }}
+          transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
+        >
+          <Image src={Bike} alt="bike image" className="animate-bikehero" />
+        </motion.div>
       </div>
+
       <div className="flex flex-col items-center mt-[5em] ">
-        <h1 className="font-[700] text-[40px] text-[#007BFF] ">
+        <h1 className="font-[700] text-[40px] text-[#007BFF]">
           Unlock Your Delivery Power with Uptions
         </h1>
         <p className="text-black font-[300] text-[20px] w-[45em] text-center">
@@ -122,30 +34,83 @@ const Unlock = () => {
           most affordable and convenient logistics options for you.
         </p>
       </div>
+
       <div className="flex justify-center items-center mt-[2em] gap-[3em] px-[5em] ">
-        <div className="w-[33em] py-[1em]">
-          <h1 className="text-[#007BFF] font-[500] text-[40px]  text">
+        <motion.div
+          className="w-[33em] py-[1em]"
+          initial={{ opacity: 0, y: 40 }} // Initial state (invisible and offset)
+          animate={{ opacity: 1, y: 0 }} // Animate to visible and correct position
+          transition={{
+            duration: 1.2,
+            delay: 0.3,
+            ease: "easeOut", // Smooth easing for this tagline
+          }}
+        >
+          <h1 className="text-[#007BFF] font-[500] text-[40px] text">
             Tired of overpaying for deliveries? Same here!
           </h1>
-          <p className="text-[#001B6C] font-[300] text-[20px]  tagline2">
+          <p className="text-[#001B6C] font-[300] text-[20px]">
             Why waste time comparing prices and offers when Uptions can do it
             for you? We bring all the best delivery deals into one place, so you
             get what you need fast and for the right price!
           </p>
-        </div>
-        <div className="flex relative">
-          <div className="flex flex-col justify-between">
-            <Image src={tag1} alt="tagline 1" className="absolute top-[6em] left-[3em] tagline1" />
-            <Image src={tag2} alt="tagline 2" className="absolute bottom-[2em] left-[4.5em] tagline2" />
-          </div>
-          <div>
-          <Image src={Woman} alt=""/>
-          </div>
-          <div className="flex flex-col justify-between">
-            <Image src={tag3} alt="tagline 3" className="tagline3 absolute left-[21em] top-[3.5em]"/>
-            <Image src={tag4} alt="tagline 4" className=" tagline4 absolute left-[23em] bottom-[5em]"/>
+        </motion.div>
 
-          </div>
+        <div className="flex relative">
+          {/* Animate tag1 */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }} // Start below the target position
+            animate={{ opacity: 1, y: 0 }} // Animate to final position (from bottom to top)
+            transition={{
+              duration: 1.5, // Smoother, longer animation
+              delay: 0.6, // Delay for first tagline
+              ease: "easeOut", // Smooth easing function
+            }}
+          >
+            <Image src={tag1} alt="tagline 1" className="absolute top-[6em] left-[3em]" />
+          </motion.div>
+
+          {/* Animate tag2 */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }} // Start below the target position
+            animate={{ opacity: 1, y: 0 }} // Animate to final position (from bottom to top)
+            transition={{
+              duration: 1.5, // Smoother, longer animation
+              delay: 0.8, // Delay for second tagline
+              ease: "easeOut", // Smooth easing function
+            }}
+          >
+            <Image src={tag2} alt="tagline 2" className="absolute bottom-[2em] left-[4.5em]" />
+          </motion.div>
+
+          {/* Woman Image (no animation) */}
+          <Image src={Woman} alt="Woman" />
+
+          {/* Animate tag3 */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }} // Start below the target position
+            animate={{ opacity: 1, y: 0 }} // Animate to final position (from bottom to top)
+            transition={{
+              duration: 1.5, // Smoother, longer animation
+              delay: 1.0, // Delay for third tagline
+              ease: "easeOut", // Smooth easing function
+            }}
+          >
+            <Image src={tag3} alt="tagline 3" className="absolute left-[21em] top-[3.5em]" />
+          </motion.div>
+
+          {/* Animate tag4 */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }} // Start below the target position
+            animate={{ opacity: 1, y: 0 }} // Animate to final position (from bottom to top)
+            transition={{
+              duration: 1.5, // Smoother, longer animation
+              delay: 1.2, // Delay for fourth tagline
+              ease: "easeOut", // Smooth easing function
+            }}
+          >
+            <Image src={tag4} alt="tagline 4" className="absolute left-[23em] bottom-[5em]" />
+          </motion.div>
         </div>
       </div>
     </div>

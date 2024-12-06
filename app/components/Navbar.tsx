@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/public/assets/images/logo2.svg";
 import Link from "next/link";
 import Doodle from "@/public/assets/images/Doodle.svg";
-import styled from "styled-components";
 
 const NAV_LINKS = [
   { label: "Home", path: "/" },

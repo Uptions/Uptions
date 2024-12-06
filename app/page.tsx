@@ -6,9 +6,10 @@ import Unlock from "@/app/components/unlock";
 import styled from "styled-components";
 import How from "@/app/components/how-we-work";
 import WhyChoose from "@/app/components/whychoose";
+import WhoCanUse from "@/app/components/whocanuse"
 
 const Background = styled.div`
-  background-image: url("/assets/images/mvpBackground.svg"); // Replace with your image path
+  background-image: url("/assets/images/mvpBackground.svg");
   background-size: cover;
   background-position: center;
 
@@ -18,21 +19,19 @@ const Background = styled.div`
 const Page = () => {
   return (
     <>
-    
-      <div className="pt ">
-      <Background>
-        <Navbar />
-        <Hero />
+      <div className="">
+        <Background>
+          <Navbar />
+          <Hero />
         </Background>
-        
 
         <div className="overflow-hidden">
-        <Unlock />
+          <Unlock />
           <How />
           <WhyChoose />
+          <WhoCanUse/>
         </div>
       </div>
-   
     </>
   );
 };
