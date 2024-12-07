@@ -42,7 +42,12 @@ const footerLinks: FooterLink[] = [
 
 const Footer = () => {
   return (
-    <div className="bg-[#001B6C]">
+    <div
+      className="bg-[#001B6C] bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/assets/footerbg2.svg')", // Your image path here
+      }}
+    >
       <div className="flex flex-col p-[3em]">
         <div className="flex justify-between">
           {/* Logo and Social Media Links */}
@@ -101,24 +106,27 @@ const Footer = () => {
         >
           <div className="flex ">
             <div className="scrolling-text">
-              <h1 className="text-[220px] font-[700] font-space text-[#007BFF]">Compare</h1>{" "}
+              <h1 className="text-[220px] font-[700] font-space text-[#007bff5f]">
+                Compare
+              </h1>{" "}
+            </div> 
+
+            <div className="scrolling-text">
+              <h1 className="text-[220px] font-[700] font-space text-[#007bff73]">
+                *
+              </h1>{" "}
             </div>
 
             <div className="scrolling-text">
-              <h1 className="text-[220px] font-[700] font-space text-[#007BFF]">*</h1>{" "}
+              <h1 className="text-[220px] font-[700] font-space text-[#0e1a41c8]  ">Choose</h1>{" "}
+            </div>
+            <div className="scrolling-text">
+              <h1 className="text-[220px] font-[700] font-space text-[#007bff76]">*</h1>{" "}
             </div>
 
             <div className="scrolling-text">
-              <h1 className="text-[220px] font-[700] font-space ">Choose</h1>{" "}
+              <h1 className="text-[220px] font-[700] font-space text-[#007bff5f]">Enjoy</h1>{" "}
             </div>
-            <div className="scrolling-text">
-              <h1 className="text-[220px] font-[700] font-space">*</h1>{" "}
-            </div>
-
-            <div className="scrolling-text">
-              <h1 className="text-[220px] font-[700] font-space">Enjoy</h1>{" "}
-            </div>
-
           </div>
         </motion.div>
       </div>
@@ -134,7 +142,6 @@ const Footer = () => {
           white-space: nowrap;
           display: inline-block;
           padding-right: 5%;
-          
         }
       `}</style>
     </div>
