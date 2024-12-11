@@ -11,8 +11,8 @@ import tag4 from "@/public/assets/images/3.svg";
 
 const Unlock = () => {
   return (
-    <div className="font-space bg-white">
-      <div className="relative">
+    <div className="font-space bg-white ">
+      <div className="relative hidden lg:block">
         <Image src={Highway} alt="highway" className="w-[100vw]" />
 
         {/* Animated Bike Image */}

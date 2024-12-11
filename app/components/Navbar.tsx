@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Join Waitlist", path: "/waitlist" },
-  { label: "Be an Uption", path: "/become-uption" },
+  { label: "Be an Uption", path: "/Become-Uption" },
 ];
 
 
@@ -51,7 +51,7 @@ const Nav = () => {
   return (
     
       <div
-        className="flex justify-between items-center px-[1.5em] py-[1em] bg-[#001E62] rounded-full mx-[2em] sticky top-[2em] z-10  shadow-lg shadow-gray-800"
+        className="flex justify-between items-center px-[1.5em] py-[1em] bg-[#001E62] rounded-full mx-[2em] sticky top-[2em] z-30  shadow-lg shadow-gray-800"
         ref={dropdownRef}
       >
         <div>
@@ -84,10 +84,12 @@ const Nav = () => {
             </Link>
           ))}
         </div>
-
-        <button className="bg-[#007BFF] py-[1.5em] font-space px-6 rounded-full h-full text-[17px] hidden lg:block">
+          <Link href="/Try-Uptions">
+          <button className="bg-[#007BFF] py-[1.5em] font-space px-6 rounded-full h-full text-[17px] hidden lg:block">
           Try out Uptions
         </button>
+          </Link>
+
 
         <div className="lg:hidden mt-[10px] w-[10em] flex items-end justify-end">
           <button onClick={toggleMenu} className="focus:outline-none">

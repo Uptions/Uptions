@@ -90,7 +90,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Animated Text with Infinite Scrolling using Framer Motion */}
-      <div className="overflow-hidden py-2 mb-[-6em]">
+      <div className="overflow-hidden py-2 mb-[-5em]">
         <motion.div
           className="scrolling-wrapper"
           initial={{ x: "100%" }}

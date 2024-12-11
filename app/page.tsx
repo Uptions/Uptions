@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Navbar from "@/app/components/navbar";
+import Navbar from "@/app/components/Navbar";
 import Hero from "@/app/components/hero";
 import Unlock from "@/app/components/unlock";
 import styled from "styled-components";
@@ -11,7 +11,7 @@ import Faq from "@/app/components/faq"
 import Footer from '@/app/components/Footer'
 
 const Background = styled.div`
-  background-image: url("/assets/images/mvpBackground.svg");
+  background-image: url("/assets/images/LongBg.svg");
   background-size: cover;
   background-position: center;
 
@@ -25,7 +25,7 @@ const Page = () => {
         <Background>
           <Navbar />
           <Hero />
-        </Background>
+        
 
         <div className="overflow-hidden">
           <Unlock />
@@ -35,6 +35,7 @@ const Page = () => {
           <Faq/>
           <Footer/>
         </div>
+        </Background>
       </div>
     </>
   );

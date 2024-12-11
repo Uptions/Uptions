@@ -109,9 +109,11 @@ const WhyChoose = () => {
 
   return (
     <div
-      className="flex flex-col font-space pt-[6em] pb-[1em] px-[5em] 2xl:px-[18em] bg-cover bg-center"
+      className="flex flex-col font-space pt-[6em] pb-[1em] px-[5em] 2xl:px-[18em] bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/assets/images/Bluebg.svg')", // Your image path here
+        backgroundSize: "cover", // Ensure the image covers the entire container
+        backgroundPosition: "center", // Ensure the image is centered
       }}
     >
       {/* Apply the border to the 3rd card */}
