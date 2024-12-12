@@ -2,41 +2,70 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import ScrollReveal from "scrollreveal";
 import Highway from "@/public/assets/images/Highway.svg";
+
+import Bike from "@/public/assets/images/Deliveryman2.png";
+import Bike2 from "@/public/assets/images/Delivery Man Riding Scooter.C01.2k 3.svg";
+import Bike3 from "@/public/assets/images/Delivery Man Riding Scooter.C01.2k 1.svg";
+import Bus from "@/public/assets/images/Electric Delivery Van.B09.2k.svg";
+
 import Woman from "@/public/assets/images/woman2.svg";
 import tag1 from "@/public/assets/images/4.svg";
 import tag2 from "@/public/assets/images/1.svg";
 import tag3 from "@/public/assets/images/2.svg";
 import tag4 from "@/public/assets/images/3.svg";
-import { motion } from "framer-motion";
-import Bike from "@/public/assets/images/Deliveryman2.png";
+
+import AnimatedComponent from "./animated-component";
 
 const Unlock = () => {
-  useEffect(() => {
-    const sr = ScrollReveal({
-      origin: "bottom",
-      distance: "50px",
-      duration: 1000,
-      reset: true, // Ensures animation resets when element re-enters the viewport
-    });
-
-    sr.reveal(".reveal", {
-      interval: 200, // Adds delay between animations
-    });
-  }, []);
 
   return (
     <div className="font-space bg-white">
-      <div className="relative hidden lg:block">
+      <div className="relative w-[100vw]">
         <Image src={Highway} alt="highway" className="w-[100vw]" />
+        <div className="absolute left w-screen h-full top-0 z-[999]" >
+          <AnimatedComponent
+            speed={3}
+            start="-100vw"
+            end="100vw"
+            direction="left"
+            loop={true}
 
-        {/* Animated Bike Image */}
-        <motion.div
-          className="absolute top-[-4px]"
-          animate={{ x: [0, 100, 200] }}
-          transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
-        >
-          <Image src={Bike} alt="bike image" className="animate-bikehero" />
-        </motion.div>
+            className="relative right-2 top-[-4px]"
+          >
+            <Image src={Bike2} alt="bike image" />
+          </AnimatedComponent>
+          <AnimatedComponent
+            speed={3}
+            start="-100vw"
+            direction="left"
+            end="100vw"
+            loop={true}
+
+            className="relative top-[-4px]"
+          >
+            <Image src={Bike3} alt="bike image" />
+          </AnimatedComponent>
+
+          <AnimatedComponent
+            speed={3}
+            start="-100vw"
+            end="100vw"
+            loop={true}
+            className="bottom-[0px] left-48 rotate-[180]"
+          >
+            <Image src={Bike} alt="bike image" />
+          </AnimatedComponent>
+          <AnimatedComponent
+            speed={3}
+            start="-100vw"
+            end="100vw"
+            loop={true}
+            className="relative bottom-0"
+          >
+            <Image src={Bus} alt="bus image" className="  rotate-180" />
+          </AnimatedComponent>
+        </div>
+
       </div>
 
       {/* Header Section */}
