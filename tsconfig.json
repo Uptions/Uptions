@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/waitlist/components/network.jsx", "app/p"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/waitlist/components/network.jsx", "app/p", "app/components/animated-component.jsx"],
   "exclude": ["node_modules"]
 }
