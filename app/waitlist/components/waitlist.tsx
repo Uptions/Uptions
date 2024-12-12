@@ -1,12 +1,8 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import bike3 from "@/public/assets/images/Delivery Man Riding Scooter (1).svg";
-import biketwo from "@/public/assets/images/Delivery Man Riding Scooter (2).svg";
-import bikeone from "@/public/assets/images/Delivery Man Riding Scooter.svg";
 import { ClipLoader } from "react-spinners"; // Import the spinner
-import bike4 from "@/public/assets/images/bikeman4.svg"
+
 
 const Waitlist = () => {
   const [email, setEmail] = useState("");
@@ -82,26 +78,21 @@ const Waitlist = () => {
   return (
     <div className="w-full mt-[3em] font-space">
       <div className="text-center z-10 flex flex-col">
-        {/* Gradient Text */}
-        <h1 className="md:hidden bg-gradient-to-r from-[#001b6c] via-[#007bff8f] to-[#001B6C] text-transparent text-[32px] bg-clip-text font-bold">
-          One app,
-          <br /> endless delivery
-          <br /> Uptions.
-        </h1>
+        <h1 className="font-[300] text-[80px] text-[#007BFF] mt-[1em]">Join in and lets keep </h1>
+        <h1 className="font-[300] text-[80px] text-[#007BFF]">you up to date</h1>
 
-        <h1 className="lg:text-[100.63px] hidden md:block text-[50px] font-bold font-space text-transparent mb-4 lg:leading-[100px] bg-gradient-to-r from-[#001b6c] via-[#007bff8f] to-[#001B6C] bg-clip-text">
-          One app,
-          <br /> endless delivery
-          <br /> Uptions.
-        </h1>
 
-        <p className="lg:text-[52.1px] text-[15px] font-normal text-[#007BFF] lg:mt-[40px] mt-[1em]">
-          Compare prices and send packages.
+        <p className="lg:text-[100px] text-[15px] font-[700] text-[#001B6C] lg:mt-[20px] mt-[1em]">
+          With our Progress
         </p>
 
         {/* Waitlist input and button */}
         <div className="flex justify-center mt-6 w-[80%] md:w-[50%] lg:w-[50%] mx-auto">
-          <form onSubmit={handleSubmit} className="flex items-center w-full backdrop-blur-md border-blue-600 px-[3px] py-[2px] md:py-[4px] lg:px-[5px] border-[1px] bg-[rgba(0,123,255,0.2)] rounded-full z-20" id="waitlist">
+          <form
+            onSubmit={handleSubmit}
+            className="flex items-center w-full backdrop-blur-md border-blue-600 px-[3px] py-[2px] md:py-[4px] lg:px-[5px] border-[1px] bg-[rgba(0,123,255,0.2)] rounded-full z-20"
+            id="waitlist"
+          >
             <input
               type="email"
               placeholder="Type your email"
@@ -116,7 +107,6 @@ const Waitlist = () => {
               JOIN WAITLIST
             </button>
           </form>
-      
         </div>
 
         {/* Error or Success Message */}
@@ -146,49 +136,6 @@ const Waitlist = () => {
         >
           Take a survey
         </a>
-      </div>
-
-      {/* Animated Bikes */}
-      <div className="">
-        <div className="absolute hidden lg:block z-0 top-[55%] lg:right-[-200px] right-[-30px] md:right-[-70px] transform -rotate-12 lg:animate-bike1 md:animate-bike1Subtle2 animate-bike1Subtle pointer-events-none">
-          <Image
-            src={bikeone}
-            width={200}
-            height={200}
-            alt="Delivery Man Riding Scooter"
-            className="w-[200.47px] md:w-[670.47px] xl:w-[800px] h-[396.56px] "
-          />
-        </div>
-
-        <div className="absolute top-[60%] hidden xl:block left-[20px] transform -rotate-12 animate-bike2">
-          <Image
-            src={bike3}
-            width={200}
-            height={200}
-            alt="Delivery Man Riding Scooter 2"
-            className="w-[456px] h-[224px]"
-          />
-        </div>
-
-        <div className="lg:block absolute top-[40%] hidden  left-[-200px] transform rotate-6 animate-bike3">
-          <Image
-            src={biketwo}
-            width={200}
-            height={200}
-            alt="Delivery Man Riding Scooter 3"
-            className="w-[400px] md:w-[456px] h-[180px] md:h-[224px]"
-          />
-        </div>
-        {/* bike that displays only on mobile */}
-        <div className="absolute top-[60%] lg:hidden block left-[20px] transform -rotate-12 animate-bike4 md:animate-bike4medium z-0">
-          <Image
-            src={bike4}
-            width={200}
-            height={200}
-            alt="Delivery Man Riding Scooter 2"
-            className="w-[500px] h-[550px]"
-          />
-        </div>
       </div>
     </div>
   );
