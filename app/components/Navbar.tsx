@@ -51,7 +51,7 @@ const Nav = () => {
   return (
     
       <div
-        className="flex justify-between items-center px-[1.5em] py-[1em] bg-[#001E62] rounded-full mx-[2em] sticky top-[2em] z-30  shadow-lg shadow-gray-800"
+        className="flex justify-between items-center px-[0.8em] py-[0.5em] bg-[#001E62] rounded-full mx-[2em] sticky top-[2em] z-30  shadow-lg shadow-gray-800"
         ref={dropdownRef}
       >
         <div>
