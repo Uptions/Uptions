@@ -7,7 +7,7 @@ import Uption from "@/app/Try-Uptions/components/Uption"
 
 
 const Background = styled.div`
-  background-image: url("/assets/images/LongBg.svg");
+  background-image: url("/assets/images/pattern.svg");
   background-size: cover;
   background-position: center;
 

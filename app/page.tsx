@@ -11,7 +11,7 @@ import Faq from "@/app/components/faq"
 import Footer from '@/app/components/Footer'
 
 const Background = styled.div`
-  background-image: url("/assets/images/LongBg.svg");
+  background-image: url("/assets/images/pattern.svg");
   background-size: cover;
   background-position: center;
 
@@ -21,21 +21,19 @@ const Background = styled.div`
 const Page = () => {
   return (
     <>
-      <div className="">
+      <div className="overflow-hidden">
         <Background>
           <Navbar />
           <Hero />
-        
-
-        <div className="overflow-hidden">
           <Unlock />
+           </Background>
           <How />
-          <WhyChoose />
+          {/* <WhyChoose /> */}
           <WhoCanUse/>
           <Faq/>
           <Footer/>
-        </div>
-        </Background>
+     
+       
       </div>
     </>
   );
