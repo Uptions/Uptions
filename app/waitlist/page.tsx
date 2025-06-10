@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 
 const Background = styled.div`
-  background-image: url("/assets/images/mvpBackground.svg");
+  background-image: url("/assets/images/pattern.svg");
   background-size: cover;
   background-position: center;
   height: 100%;

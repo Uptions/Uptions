@@ -2,21 +2,21 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Aos from "aos";
 import "aos/dist/aos.css"; // Import the AOS styles
-import s1 from "@/public/assets/images/sw.svg";
-import s2 from "@/public/assets/images/s2.svg";
-import s3 from "@/public/assets/images/s3.svg";
+import List from "@/public/assets/images/delivery-list.svg";
+import Deliveries from "@/public/assets/images/deliveries.svg";
+import Courier from "@/public/assets/images/courier.svg";
 
 const HowWork = () => {
   useEffect(() => {
     // Initialize AOS
     Aos.init({
-      duration: 1000,  // Animation duration
-      once: true,      // Whether animation should run only once
+      duration: 1000, // Animation duration
+      once: true, // Whether animation should run only once
     });
   }, []);
 
   return (
-    <div className="bg-white text-center font-space pt-[5em] pb-[15em]">
+    <div className="bg-white text-center font-space py-[5em]">
       <div>
         <h1
           className="text-[#007BFF] font-[700] text-[50px]"
@@ -25,18 +25,56 @@ const HowWork = () => {
           How <span className="text-black">Uptions</span> work
         </h1>
       </div>
-
-      <div className="flex items-center gap-[3em] justify-center px-[5em] mt-[3em]">
-        <div className="card card1" data-aos="fade-up" data-aos-delay="200">
-          <Image src={s1} alt="man 1" />
+      <div data-aos='fade-up'>
+        <div className="flex items-center gap-[7.5em] justify-center px-[5em] mt-[3em]">
+          <Image
+            src={List}
+            alt="List of delivery companies prices"
+            className="rounded-2xl"
+          />
+          <div>
+            <h1 className="text-[58px] font-bold font-space text-[#007BFF] ">
+              Give us the details
+            </h1>
+            <p className="text-lg text-black ">
+              Tell us what you’re sending and where—it only takes a sec.
+            </p>
+          </div>
         </div>
 
-        <div className="card card2" data-aos="fade-up" data-aos-delay="400">
-          <Image src={s2} alt="man 2" />
-        </div>
+        <div className="flex items-center gap-[7.5em] justify-center px-[5em] mt-[3em]">
+          <div>
+            <h1 className="text-[58px] font-bold font-space text-[#007BFF] text-left  ">
+              Compare delivery <br />
+              uptions instantly.
+            </h1>
+            <p className="text-lg text-black text-left ">
+              We scan the streets so you don’t have to—get the best <br /> deals
+              in seconds.
+            </p>
+          </div>
 
-        <div className="card card3" data-aos="fade-up" data-aos-delay="600">
-          <Image src={s3} alt="man 3" />
+          <Image
+            src={Deliveries}
+            alt="List of delivery companies prices"
+            className="rounded-2xl"
+          />
+        </div>
+        <div className="flex items-center gap-[7.5em] justify-center px-[5em] mt-[3em]">
+          <Image
+            src={Courier}
+            alt="List of delivery companies prices"
+            className="rounded-2xl"
+          />
+          <div>
+            <h1 className="text-[58px] font-bold font-space text-[#007BFF] text-left">
+              Pick your fave and
+              <br /> get started.
+            </h1>
+            <p className="text-lg text-black ">
+              Choose your perfect match and let’s get that package moving!
+            </p>
+          </div>
         </div>
       </div>
     </div>

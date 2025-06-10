@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Become from "@/app/Become-Uption/Components/become";
 
 const Background = styled.div`
-  background-image: url("/assets/images/LongBg.svg");
+  background-image: url("/assets/images/pattern.svg");
   background-size: cover;
   background-position: center;
 
@@ -15,7 +15,7 @@ const Background = styled.div`
 
 const page = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Background>
         <Navbar />
         <Become />
